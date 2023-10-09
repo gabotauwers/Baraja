@@ -1,0 +1,91 @@
+body{
+    background-color: green !important;
+}
+h1{
+    color: white !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px !important;
+    text-align: center;
+    background-color: rgb(255, 121, 59);
+    border-radius: 10px;
+}
+@media (min-width: 700px) {
+  img {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+  }
+}
+  
+@media (max-width: 700px) {
+  img {
+    width: 60px;
+    height: 100px;
+    border-radius: 10px;
+  }
+}
+.girar, .girarCarta{
+  transform: rotateY(360deg);
+  transition: transform 1s;
+}
+button{
+  background-color: #000 !important;
+  color: #fff !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  border: white double !important;
+  cursor: pointer !important;
+  margin: 10px !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloqueado{
+  pointer-events: none;
+}
+
+.hover:hover{
+  border: blue;
+  border-radius: 10px;
+  border-style: double;
+  cursor: pointer;
+}
+
+.bancoCartas{
+  margin: 20px;
+  text-align: center;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 15px;
+  border: white 2px;
+  max-width: fit-content !important;
+}
+#contadorBanco{
+  text-align: center;
+}
+#contador{
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  position: relative;
+}
+.turno{
+  background-color: rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  border: white 2px;
+  border-style: groove;
+}
+.contenedor-cartas{
+  margin: 20px;
+}
