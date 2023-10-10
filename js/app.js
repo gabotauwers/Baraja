@@ -11,8 +11,9 @@ let banco;
 let turnoRival = false;
 let turnoMio = false;
 let imagenBanco = document.getElementById('banco');
-let imagenSeleccionada = null;
 const contadorBanco = document.getElementById('contador');
+
+document.addEventListener('DOMContentLoaded', nuevoJuego())
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -23,6 +24,8 @@ function shuffleArray(array) {
 }
 
 function nuevoJuego(){
+    console.log(rival);
+    console.log(mias);
     rival.forEach((carta) => {
         carta.classList.remove('hover');	
     });
@@ -37,24 +40,22 @@ function nuevoJuego(){
     // Mezcla los índices aleatoriamente
     indicesMezclados = shuffleArray(indices);
 
-    // Asigna las imágenes en el orden mezclado
+    // Asigna las imágenes en el orden mezclado INDEX 0-7
     mias.forEach((carta, index) => {
         indiceImagen = indicesMezclados[index];
+        console.log(indiceImagen);
         // console.log(index);
         indicesMezclados.splice(index,1);
-        carta.src = `../img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos
+        carta.src = `img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos 
         carta.alt = `Carta ${indiceImagen + 1}`;
-        imagenBanco.style.transform = 'rotateY(180deg)';
-        carta.style.transform = 'rotate(0deg)';
     });
 };
-document.addEventListener('DOMContentLoaded', nuevoJuego())
+
 
 //iniciar juego
 function iniciar(){
     btnNuevo.disabled = true;
     myTurn.classList.add('turno');
-    
     rival.forEach((carta) => {
         // console.log(carta);
         carta.classList.add('hover');
@@ -71,7 +72,7 @@ function iniciar(){
     rival.forEach((carta, index) => {
         indiceImagen = indicesMezclados[index];
         indicesMezclados.splice(index,1);
-        carta.src = `../img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos
+        carta.src = `img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos
         carta.alt = `Carta ${indiceImagen + 1}`;
     });
     contador.innerHTML = 'x' + indicesMezclados.length;
@@ -83,7 +84,7 @@ function cambiar(){
     let turnosRival = 0;
 
     //turno del rival
-    if(turnoRival && !turnoMio){
+    if(turnoRival && !turnoMio){//if(turnoRival == true && turnoMio == false)
         myTurn.classList.remove('turno');
         rivalTurn.classList.add('turno');
         mias.forEach((carta) => {
@@ -109,7 +110,7 @@ function cambiar(){
                     index--;
                     // console.log(indicesMezclados)
                     // console.log(indiceImagen, '', indiceImagen+1);
-                    carta.src = `../img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos
+                    carta.src = `img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos
                     carta.alt = `Carta ${indiceImagen + 1}`;
                     contador.innerHTML = 'x' + indicesMezclados.length;
                     cambiar();
@@ -146,7 +147,7 @@ function cambiar(){
                     index--;
                     console.log(indicesMezclados)
                     // console.log(indiceImagen, '', indiceImagen+1);
-                    carta.src = `../img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos
+                    carta.src = `img/${indiceImagen + 1}.jpg`; // Ajusta la ruta según tu estructura de archivos
                     carta.alt = `Carta ${indiceImagen + 1}`;
                     contador.innerHTML = 'x' + indicesMezclados.length;
                     cambiar();
